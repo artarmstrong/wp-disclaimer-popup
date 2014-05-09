@@ -1,4 +1,4 @@
-WP JQuery Disclaimer
+WP Disclaimer
 ====================
 
 WP Plugin that shows a disclaimer on a page before showing content.
