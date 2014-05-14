@@ -1,5 +1,5 @@
 === WP Disclaimer ===
-Contributors: artarmstrong
+Contributors: arthurjarmstrong
 Tags: jquery, javascript, plugin, disclaimer, fancybox, popup
 License: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 License URI: http://artarmstrong.com/wp-disclaimer

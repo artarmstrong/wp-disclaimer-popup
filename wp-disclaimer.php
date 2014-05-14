@@ -4,7 +4,7 @@
  * Plugin URI: http://artarmstrong.com/wp-disclaimer
  * Description: Creates a disclaimer popup on the page where the short code is used.
  * Version: 1.0
- * Author: artarmstrong
+ * Author: arthurjarmstrong
  * Author URI: http://artarmstrong.com
  * License: GPL2
  */
