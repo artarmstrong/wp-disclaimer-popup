@@ -11,7 +11,7 @@ function wpd_custom_meta_box_add() {
 
   add_meta_box(
     "wpd_disclaimer_meta",
-    __( "Disclaimer Information", "wp-disclaimer" ),
+    __( "Disclaimer Information", "wp-disclaimer-popup" ),
     "wpd_custom_meta_disclaimer",
     "disclaimers",
     "normal",
