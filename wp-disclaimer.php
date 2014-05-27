@@ -25,9 +25,34 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+// Error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 // Includes
 include( plugin_dir_path( __FILE__ ) . '_inc/meta-box.php');
 include( plugin_dir_path( __FILE__ ) . '_inc/shortcodes.php');
+
+// Plugin installer!
+register_activation_hook(__FILE__, 'wpd_install');
+function wpd_install () {
+
+	// Initial Settings
+	$settings = serialize( array(
+		'hold' => 1,
+		'accept' => 'Accept',
+		'decline' => 'Decline',
+		'redirect' => get_site_url()
+	));
+	update_option('wpd_settings', $settings);
+
+}
+
+// Plugin uninstall!
+register_uninstall_hook(__FILE__, 'wpd_uninstall');
+function wpd_uninstall(){
+	delete_option('wpd_settings');
+}
 
 // Enqueue scripts and styles
 add_action( 'wp_enqueue_scripts', 'wpd_enqueue_scripts_styles' );

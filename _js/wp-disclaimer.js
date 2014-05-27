@@ -23,16 +23,24 @@ jQuery(document).ready(function($) {
   		closeBtn : false,
   		closeClick  : false,
   		helpers   : { 
-        overlay : {closeClick: false} // prevents closing when clicking OUTSIDE fancybox 
+        overlay : {
+          closeClick: false, // prevents closing when clicking OUTSIDE fancybox 
+          css : {
+            'background' : 'rgba(0, 0, 0, 0.9)'
+          }
+        }
       },
       keys : {
         close  : null
+      },
+      overlay: {
+        opacity: 0.8, // or the opacity you want 
       }
   	}).trigger('click');
   	
   	// Agree button
   	$('#wpd-disclaimer .agree').click(function(){
-  		//$.cookie('wpd-'+post_id, 'agreed', { expires: cookie_expire });
+  		$.cookie('wpd-'+post_id, 'agreed', { expires: cookie_expire });
   		$.fancybox.close();
   		return false; 
   	});

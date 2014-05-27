@@ -52,7 +52,10 @@ function wpd_custom_meta_box_save( $post_id ) {
 
 /* Prints the social media box content */
 function wpd_custom_meta_disclaimer( $post ) {
-
+  
+  // Get default settings
+	$settings = unserialize(get_option('wpd_settings'));
+  
 	// Use nonce for verification
 	wp_nonce_field( basename( __FILE__ ), 'wpd_noncename' );
 
@@ -66,7 +69,7 @@ function wpd_custom_meta_disclaimer( $post ) {
 					<label>'Accept' button text:</label>
 				</td>
 				<td>
-					<input type="text" id="wpd_accept" name="wpd_accept" style="width:250px;" value="<?= get_post_meta($post->ID, 'wpd_accept', true); ?>" placeholder="Accept" />
+					<input type="text" id="wpd_accept" name="wpd_accept" style="width:250px;" value="<?= get_post_meta($post->ID, 'wpd_accept', true); ?>" placeholder="<?= $settings['accept']; ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -74,7 +77,7 @@ function wpd_custom_meta_disclaimer( $post ) {
 					<label>'Decline' button text:</label>
 				</td>
 				<td>
-					<input type="text" id="wpd_decline" name="wpd_decline" style="width:250px;" value="<?= get_post_meta($post->ID, 'wpd_decline', true); ?>" placeholder="Decline" />
+					<input type="text" id="wpd_decline" name="wpd_decline" style="width:250px;" value="<?= get_post_meta($post->ID, 'wpd_decline', true); ?>" placeholder="<?= $settings['decline']; ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -82,7 +85,7 @@ function wpd_custom_meta_disclaimer( $post ) {
 					<label>'Decline' redirection url:</label>
 				</td>
 				<td>
-					<input type="text" id="wpd_redirect" name="wpd_redirect" style="width:350px;" value="<?= get_post_meta($post->ID, 'wpd_redirect', true); ?>" placeholder="<?php echo get_site_url(); ?>" />
+					<input type="text" id="wpd_redirect" name="wpd_redirect" style="width:350px;" value="<?= get_post_meta($post->ID, 'wpd_redirect', true); ?>" placeholder="<?= $settings['redirect']; ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -90,7 +93,7 @@ function wpd_custom_meta_disclaimer( $post ) {
 					<label>Days to hold cookie:</label>
 				</td>
 				<td>
-					<input type="text" id="wpd_hold" name="wpd_hold" style="width:50px;" value="<?= get_post_meta($post->ID, 'wpd_hold', true); ?>" placeholder="5" />
+					<input type="text" id="wpd_hold" name="wpd_hold" style="width:50px;" value="<?= get_post_meta($post->ID, 'wpd_hold', true); ?>" placeholder="<?= $settings['hold']; ?>" />
 				</td>
 			</tr>
 		</table>
